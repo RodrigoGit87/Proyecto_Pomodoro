@@ -14,10 +14,12 @@
     color: darkolivegreen
 }
 
-#borde {
+#caja {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 350px;
-    height: 225px;
+    height: auto;
     border-radius: 16px;
     background-color: rgb(90, 136, 136);
 }
@@ -28,5 +30,17 @@
     justify-content: center;
     align-items: center;
     color: azure;
+    font-size: 2em;
+}
+
+#btn_start_stop{
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    font-size: 1.5em;
+    color: rgb(0, 0, 0, .7);
+}
+#counter{
     font-size: x-large;
+    color: azure;
 }

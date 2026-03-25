@@ -9,11 +9,13 @@ const stop=document.getElementById("stop");
 //interruptor booleano
 let tiempo_ciclo =false;
 let tiempo_descanso = false;
+let en_marcha=false;
+let modo_curro=true;
 //variables numericas
 let minutos_int=25;
 let segundos_int=0;
 let intervalo;
-let en_marcha=false;
+let ciclos_counter=0;
 
 //Funcion para cuenta atrrás
 function cuenta_atras(){
@@ -23,10 +25,29 @@ function cuenta_atras(){
         minutos_int--;
     } else {
         alert(`Ciclo de trabajo completado`);
-        clearInterval(intervalo);
-        en_marcha=false;
-        return;
-    } 
+        if(modo_curro){
+            ciclos_counter++;
+            counter.innerText=ciclos_counter
+        
+        alert(`Empieza descanso de 5 minutos`)
+        //Cambiar a modo descanso
+        modo_curro=false
+        //resetear valor de minutos a 5
+        minutos_int=5;
+        segundos_int=0;
+        //detalle estetico
+        document.body.style.backgroundColor = "lightgreen";
+        } else{
+            //Descanso termina -> modo curro
+            alert(`Descanso terminado.Vuelve un ciclo de 25mins.`)
+            modo_curro=true;
+            //volver a setear los valores del modo trabajo
+            minutos_int=25;
+            segundos_int=0;
+            //Resetear el color de trabajo
+            document.body.style.backgroundColor="";//Cogerá el BG del body por defecto de mi css
+        }
+    }
 
     minutos.innerText = minutos_int<10 ? "0"+minutos_int : minutos_int
     segundos.innerText=segundos_int<10 ? "0"+segundos_int : segundos_int

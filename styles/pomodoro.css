@@ -1,7 +1,8 @@
-body{
+body {
     background-color: lightcoral;
     padding: 50px;
     margin-top: 10%;
+    transition: background-color 1s ease;
 }
 
 #divPadre {
@@ -49,4 +50,32 @@ body{
 #counter{
     font-size: x-large;
     color: azure;
+}
+
+#notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-left: 5px solid darkolivegreen;
+    z-index: 1000; /*z index:1000 por convencion para notificaciones, pop_ups: 100, contenido:1, fondo: -1*/
+    transition: all 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#notificacion.oculto {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+#mensaje-notificacion {
+    margin: 0;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
 }

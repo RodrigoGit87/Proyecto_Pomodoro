@@ -1,3 +1,9 @@
+body{
+    background-color: lightcoral;
+    padding: 50px;
+    margin-top: 10%;
+}
+
 #divPadre {
     display: flex;
     padding: 5%;
